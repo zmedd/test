@@ -2,7 +2,7 @@ import React from "react";
 
 const Search = props => {
   return (
-    <div className="ui input">
+    <div className="ui fluid input" style={{ marginBottom: 40 }}>
       <input
         type="search"
         placeholder="Search user list"

@@ -19,19 +19,28 @@ export default class UserList extends React.Component {
 
   render() {
     return (
-      <ul className="ui list">
+      <ul className="ui middle aligned divided list">
         {this.props.usrs.map(user => {
           return (
             <li
-              className="item"
               key={user.id}
-              onClick={this.onClickEmitter}
-              data-name={user.name}
+              className="item"
               style={user.show === true ? v : h}
             >
-              {`${user.name} ${
+              <h3
+                className="content"
+                onClick={this.onClickEmitter}
+                data-name={user.name}
+              >{`${user.name} ${
                 user.othersClicked > 0 ? " - " + user.othersClicked : ""
-              }`}
+              }`}</h3>
+              <button
+                data-id={user.id}
+                onClick={this.props.delete}
+                className="right floated content circular ui icon button"
+              >
+                <i className="close icon"></i>
+              </button>
             </li>
           );
         })}

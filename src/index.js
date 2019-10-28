@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import UserList from "./UserList";
 import Search from "./Search";
 import users from "./getUsers";
+import "./style.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class App extends React.Component {
       usr: users,
       loaded: 0
     };
+    this.deleteUser = this.deleteUser.bind(this);
   }
   searchUsers(event) {
     users.forEach(user => {
@@ -25,12 +27,17 @@ class App extends React.Component {
     });
     this.setState({ loaded: this.state.loaded + 1 });
   }
+  deleteUser(user) {
+    users.splice(user.id, 1);
+    console.log(users.length);
+    this.setState({ loaded: this.state.loaded + 1 });
+  }
   render() {
     return (
-      <div>
+      <div className="cont">
         <h1>Users List</h1>
         <Search usr={this.state.usr} searchUsr={this.searchUsers} />
-        <UserList usrs={this.state.usr} />
+        <UserList usrs={this.state.usr} delete={this.deleteUser} />
       </div>
     );
   }
