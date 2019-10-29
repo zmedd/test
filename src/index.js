@@ -15,15 +15,18 @@ class App extends React.Component {
     };
   }
   searchUsers(event) {
-    users.forEach(user => {
-      let un = user.name.toLowerCase();
-      if (un.includes(event.target.value.toLowerCase())) {
-        user.show = true;
-      } else {
-        user.show = false;
-      }
-    });
-    this.setState({ usr: users });
+    const myEl = event.target.value;
+    setTimeout(() => {
+      users.forEach(user => {
+        let un = user.name.toLowerCase();
+        if (un.includes(myEl.toLowerCase())) {
+          user.show = true;
+        } else {
+          user.show = false;
+        }
+      });
+      this.setState({ usr: users });
+    }, 300);
   }
   deleteUser = id => {
     this.setState({
