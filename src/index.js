@@ -11,11 +11,8 @@ class App extends React.Component {
     this.searchUsers = this.searchUsers.bind(this);
     // Set some state
     this.state = {
-      usr: users,
-      loaded: 0,
-      search: 0
+      usr: users
     };
-    this.deleteUser = this.deleteUser.bind(this);
   }
   searchUsers(event) {
     users.forEach(user => {
@@ -26,7 +23,7 @@ class App extends React.Component {
         user.show = false;
       }
     });
-    this.setState({ loaded: this.state.loaded + 1 });
+    this.setState({ usr: users });
   }
   deleteUser = id => {
     this.setState({
@@ -36,7 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="cont">
-        <h1>Users List</h1>
+        <h1>User List</h1>
         <Search usr={this.state.usr} searchUsr={this.searchUsers} />
         <UserList usrs={this.state.usr} delete={this.deleteUser} />
       </div>
