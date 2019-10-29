@@ -36,7 +36,7 @@ export default class UserList extends React.Component {
               }`}</h3>
               <button
                 data-id={user.id}
-                onClick={this.props.delete}
+                onClick={() => this.props.delete(user.id)}
                 className="right floated content circular ui icon button"
               >
                 <i className="close icon"></i>

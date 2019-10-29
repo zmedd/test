@@ -12,7 +12,8 @@ class App extends React.Component {
     // Set some state
     this.state = {
       usr: users,
-      loaded: 0
+      loaded: 0,
+      search: 0
     };
     this.deleteUser = this.deleteUser.bind(this);
   }
@@ -27,11 +28,11 @@ class App extends React.Component {
     });
     this.setState({ loaded: this.state.loaded + 1 });
   }
-  deleteUser(user) {
-    users.splice(user.id, 1);
-    console.log(users.length);
-    this.setState({ loaded: this.state.loaded + 1 });
-  }
+  deleteUser = id => {
+    this.setState({
+      usr: [...this.state.usr.filter(user => user.id !== id)]
+    });
+  };
   render() {
     return (
       <div className="cont">
