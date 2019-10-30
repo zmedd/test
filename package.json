@@ -10,7 +10,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "NODE_ENV=test jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -29,6 +29,9 @@
     ]
   },
   "devDependencies": {
-    "riteway": "^6.1.0"
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "jest-enzyme": "^7.1.2"
   }
 }
