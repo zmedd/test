@@ -13,7 +13,7 @@ beforeEach(function() {
   component = ReactDOM.render(<UserList usrs={users} />, node);
 });
 
-it("should update the state of the component when the value prop is changed", function() {
+it("check if component re renders with same props", function() {
   ReactDOM.render(<UserList usrs={component.props.usrs} />, node);
   expect(component.props.usrs).toBe(users);
 });
