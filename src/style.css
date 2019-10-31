@@ -1,14 +1,14 @@
 ul li::before {
-  display: none;
+    display: none;
 }
 ul {
-  margin-left: 0 !important;
+    margin-left: 0 !important;
 }
 .cont {
-  max-width: 320px;
-  margin: auto;
-  padding: 0 15px;
+    max-width: 320px;
+    margin: auto;
+    padding: 0 15px;
 }
 ul li h3 {
-  display: inline-block;
+    display: inline-block;
 }
