@@ -2,18 +2,17 @@ import React from "react";
 import UserList from "./UserList";
 import Search from "./Search";
 import users from "./getUsers";
-//import "./style.css";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.searchUsers = this.searchUsers.bind(this);
-    // Set some state
     this.state = {
       usr: users,
       updated: 0
     };
   }
+
   searchUsers(event) {
     const myEl = event.target.value;
     setTimeout(() => {
@@ -28,16 +27,17 @@ export default class App extends React.Component {
       this.setState({ updated: this.state.updated + 1 });
     }, 300);
   }
+
   deleteUser = id => {
     this.setState({
       usr: [...this.state.usr.filter(user => user.id !== id)]
     });
   };
+
   render() {
     return (
       <div className="cont">
         <h1>User List</h1>
-        <button onClick={this.testFunction}>Test</button>
         <Search usr={this.state.usr} searchUsr={this.searchUsers} />
         <UserList
           usrs={this.state.usr}
