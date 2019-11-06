@@ -16,6 +16,7 @@ export default class App extends React.Component {
     searchUsers(event) {
         const myEl = event.target.value;
         setTimeout(() => {
+            console.log('Run search handler here with debounce, does not work as expected');
             users.forEach(user => {
                 let un = user.name.toLowerCase();
                 if (un.includes(myEl.toLowerCase())) {
