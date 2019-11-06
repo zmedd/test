@@ -1,20 +1,21 @@
 import React from "react";
 import users from "./getUsers";
 
-const v = { display: "block" };
-const h = { display: "none" };
+const v = {display: "block"};
+const h = {display: "none"};
 
 export default class UserList extends React.Component {
-    state = {
-        clicked: 0
-    };
-    onClickEmitter = e => {
+    // state = {
+    //     clicked: 0
+    // };
+
+    onClickEmitter = (userName) => {
         for (let i = 0; i < users.length; i++) {
-            if (users[i].name !== e.target.getAttribute("data-name")) {
+            if (users[i].name !== userName) {
                 users[i].othersClicked += 1;
             }
         }
-        this.setState({ clicked: this.state.clicked + 1 });
+        // this.setState({clicked: this.state.clicked + 1});
     };
 
     render() {
@@ -29,8 +30,7 @@ export default class UserList extends React.Component {
                         >
                             <h3
                                 className="content"
-                                onClick={this.onClickEmitter}
-                                data-name={user.name}
+                                onClick={() => this.onClickEmitter(user.name)}
                             >{`${user.name} ${
                                 user.othersClicked > 0
                                     ? " - " + user.othersClicked
